@@ -1,13 +1,15 @@
 
 from locust import Locust, TaskSet, task
 
+
 class IgeonoteTasks(TaskSet):
+
     def on_start(self):
-       pass
+        pass
 
     @task
     def aagtekerke(self):
-	    self.client.get('/city/map/1144829/aagtekerke-zeeland-netherlands')
+        self.client.get('/city/map/1144829/aagtekerke-zeeland-netherlands')
 
     @task
     def index(self):
@@ -50,22 +52,28 @@ class IgeonoteUser(Locust):
     host = 'http://igeonote.com'
     task_set = IgeonoteTasks
 
+
 class SiboxTasks(TaskSet):
+
     def on_start(self):
         pass
+
     @task
     def index(self):
         self.client.get('/')
 
+
 class SiboxUser(Locust):
     host = 'http://sibox.isgoodness.com'
     task_set = SiboxTasks
+
 
 class ShrtiTasks(TaskSet):
 
     @task
     def index(self):
         self.client.get('/create')
+
 
 class ShrtiUser(Locust):
     host = 'http://shrti.isgoodness.com'
@@ -78,15 +86,18 @@ class ErrorJsTasks(TaskSet):
     def index(self):
         self.client.get('/list')
 
+
 class ErrorJsUser(Locust):
     host = 'http://jserrorpixel.com'
     task_set = ErrorJsTasks
+
 
 class WebperfTasks(TaskSet):
 
     @task
     def index(self):
         self.client.get('/report/timing/igeonote.com')
+
 
 class WebperfUser(Locust):
     host = 'http://webperf.isgoodness.com'
@@ -98,6 +109,7 @@ class CurrebasTasks(TaskSet):
     @task
     def index(self):
         self.client.get('/')
+
 
 class CurrebasUser(Locust):
     host = 'http://currebas.isgoodness.com'
