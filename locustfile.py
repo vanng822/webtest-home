@@ -3,47 +3,47 @@ from locust import Locust, TaskSet, task
 
 class IgeonoteTasks(TaskSet):
     def on_start(self):
-       pass 
-   
+       pass
+
     @task
     def aagtekerke(self):
-	       self.client.get('/city/map/1144829/aagtekerke-zeeland-netherlands')
- 
+	    self.client.get('/city/map/1144829/aagtekerke-zeeland-netherlands')
+
     @task
     def index(self):
         self.client.get("/")
-        
+
     @task
     def about(self):
         self.client.get("/city/map/651585/aach-baden-wurttemberg-germany")
 
     @task
     def api(self):
-	   self.client.get("/api/geoip/country/66.249.66.20")
+        self.client.get("/api/geoip/country/66.249.66.20")
 
     @task
     def city(self):
-	   self.client.get("/city")
+        self.client.get("/city")
 
     @task
     def country(self):
         self.client.get("/country/china")
-    
+
     @task
     def geoname1(self):
         self.client.get("/api/zipcode/us/90210")
-    
+
     @task
     def geoname2(self):
-	   self.client.get("/api/zipcode/za/9974")
-    
+        self.client.get("/api/zipcode/za/9974")
+
     @task
     def geoname3(self):
-	   self.client.get("/api/zipcode/za/9958")
-    
+        self.client.get("/api/zipcode/za/9958")
+
     @task
     def geoname4(self):
-	   self.client.get("/api/zipcode/za/9966")
+        self.client.get("/api/zipcode/za/9966")
 
 
 class IgeonoteUser(Locust):
@@ -52,20 +52,20 @@ class IgeonoteUser(Locust):
 
 class SiboxTasks(TaskSet):
     def on_start(self):
-       pass 
+        pass
     @task
     def index(self):
-           self.client.get('/')
-    
+        self.client.get('/')
+
 class SiboxUser(Locust):
     host = 'http://sibox.isgoodness.com'
     task_set = SiboxTasks
 
 class ShrtiTasks(TaskSet):
-    
+
     @task
     def index(self):
-           self.client.get('/create')
+        self.client.get('/create')
 
 class ShrtiUser(Locust):
     host = 'http://shrti.isgoodness.com'
@@ -73,33 +73,32 @@ class ShrtiUser(Locust):
 
 
 class ErrorJsTasks(TaskSet):
-    
+
     @task
     def index(self):
-           self.client.get('/list')
+        self.client.get('/list')
 
 class ErrorJsUser(Locust):
     host = 'http://jserrorpixel.com'
     task_set = ErrorJsTasks
-    
+
 class WebperfTasks(TaskSet):
-    
+
     @task
     def index(self):
-           self.client.get('/report/timing/igeonote.com')
+        self.client.get('/report/timing/igeonote.com')
 
 class WebperfUser(Locust):
     host = 'http://webperf.isgoodness.com'
     task_set = WebperfTasks
-    
+
 
 class CurrebasTasks(TaskSet):
-    
+
     @task
     def index(self):
-           self.client.get('/')
+        self.client.get('/')
 
 class CurrebasUser(Locust):
     host = 'http://currebas.isgoodness.com'
     task_set = CurrebasTasks
-
